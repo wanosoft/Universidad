@@ -33,9 +33,20 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
-  }
+    view: 'wanosoft/test'
+  },
 
+  '/Inicio': {
+    view: 'alumno/inicio'
+  },
+
+  '/wanosoft': {
+    view: 'wanosoft/test'
+  },
+
+  '/galery': {
+    view: 'galery'
+  }
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

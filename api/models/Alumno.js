@@ -7,8 +7,47 @@
 
 module.exports = {
 
-  attributes: {
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
 
-  }
+    attributes: {
+
+    	matricula: {
+        type: 'integer',
+        unique: true,
+        primaryKey: true
+      },
+
+      nombre:{
+      	type: 'string',
+      	size: 25,
+      	required:true
+      },
+
+      apellido_paterno:{
+      	type: 'string',
+      	size: 25,
+      	required:true
+      },
+
+      apellido_materno:{
+      	type: 'string',
+      	size: 25,
+      	required:true
+      },
+
+      edad:{
+      	type: 'integer',
+      	required:true
+      },
+
+      cursa:{
+        model:'carrera' //nombre de la entidad a relacionar
+      },
+
+      cursa_materia:{
+        collection:'materia',
+        via:'matricula'
+      }
+    }
 };
-

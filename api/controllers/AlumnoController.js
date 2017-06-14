@@ -6,6 +6,8 @@
  */
 
 module.exports = {
-	
+	new:function(req,res){
+		console.log("Entraste a New");
+		res.view();
+	}
 };
-
