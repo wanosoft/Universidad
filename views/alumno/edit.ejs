@@ -1,44 +1,49 @@
 <div class="container">
-  <h1>Dar de alta un alumno</h1>
-     <form class="col s12" method="post" action="/alumno/create">
+  <h1>Editar alumno</h1>
+     <form class="col s12" method="post" action="/alumno/update/?matricula=<%= alumno.matricula%>">
        <div class="row">
 
          <div class="input-field col s6">
-           <input name="idmatricula" type="number" class="validate">
+           <input type="text" disabled value="<%= alumno.matricula%>">
            <label for="idmatricula">Matricula</label>
          </div>
          <div class="input-field col s6">
-           <input name="nombre" type="text" class="validate">
+           <input name="nombre" type="text" class="validate" value="<%= alumno.nombre%>">
            <label for="nombre">Nombre</label>
          </div>
          <div class="input-field col s6">
-           <input name="ap" type="text" class="validate">
+           <input name="ap" type="text" class="validate" value="<%= alumno.apellido_paterno%>">
            <label for="ap">Apellido Paterno</label>
          </div>
        </div>
        <div class="row">
          <div class="input-field col s6">
-           <input name="am" type="text" class="validate">
+           <input name="am" type="text" class="validate" value="<%= alumno.apellido_materno%>">
            <label for="am">Apellido Materno</label>
          </div>
        </div>
        <div class="row">
          <div class="input-field col s6">
-           <input name="edad" type="number" class="validate">
+           <input name="edad" type="number" class="validate" value="<%= alumno.edad%>">
            <label for="edad">Edad</label>
          </div>
        </div>
        <div class="row">
          <div class="input-field col s6">
-           <input name="carrera" type="text" class="validate">
-           <label for="carrera">Carrera</label>
+          <select name="carrera">
+            <option value="" disabled selected="Choose your carrera"></option>
+            <option value="1">Software</option>
+            <option value="2">Phisiotherapy</option>
+            <option value="3">Energy</option>
+            <option value="4">Manofacturing</option>
+          </select>
          </div>
        </div>
        <div class="row">
          <div class="input-field col s12">
            <button class="btn waves-effect waves-light" type="submit" name="button">
-             Enviar
-             <i class="material-icons right">send</i>
+             Guardar
+             <i class="material-icons right">save</i>
            </button>
          </div>
        </div>

@@ -42,5 +42,47 @@ module.exports = {
 						return next(err);
 					} res.view({alumno:alumno});
 				});
+	},
+
+	edit:function(req,res,next){
+		sails.log('Entraste a editar');
+		sails.log('Matricula: --> '+req.param('matricula'));
+
+		Alumno.findOne({matricula:req.param('matricula')},
+				function(err,alumno){
+					if(err){
+						return next(err);
+					} res.view({alumno:alumno});
+				});
+	},
+
+	update:function(req,res,next){
+		var alumnoObj = {
+			nombre: req.param('nombre'),
+			apellido_paterno:req.param('ap'),
+			apellido_materno:req.param('am'),
+			edad:req.param('edad'),
+			cursa:req.param('carrera')
+		}
+
+		Alumno.update({matricula:req.param('matricula')},
+			alumnoObj, function(err,alumno){
+				if (err) {
+					sails.log(err);
+					return res.redirect('/alumno/show/?matricula='
+						+req.param('matricula'));
+				} return res.redirect('/alumno/show/?matricula='
+					+req.param('matricula'));
+			}
+		)
+	},
+
+	all:function(req,res,next){
+		Alumno.find(function(error,alumnos){
+			if (error) {
+					sails.log(error);
+					return next(error);
+			} res.view({alumnos:alumnos});
+		})
 	}
 };
