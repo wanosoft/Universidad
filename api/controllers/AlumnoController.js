@@ -19,12 +19,16 @@ module.exports = {
 				apellido_paterno:req.param('ap'),
 				apellido_materno:req.param('am'),
 				edad:req.param('edad'),
-				cursa:req.param('carrera')
+				cursa:req.param('carrera'),
+				password:req.param('psw'),
+				passwordConfirmation:req.param('pswc')
 			}
 
 			// Alumno es el modelo
 			Alumno.create(alumnoObj, function(err, alumno){
 				if(err){
+					//console.log(JSON.stringify(err));
+					req.session.flash={err:err};
 					return res.redirect('alumno/new');
 				}
 				sails.log('alumno %s%', alumno);
@@ -84,5 +88,16 @@ module.exports = {
 					return next(error);
 			} res.view({alumnos:alumnos});
 		})
+	},
+
+	delete:function(req,res,next){
+		Alumno.destroy({matricula:req.param('matricula')},
+			function(err){
+				if(err){
+					sails.log(err);
+					return next(err);
+				} res.redirect('/alumno/all');
+			}
+		)
 	}
 };
