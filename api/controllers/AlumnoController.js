@@ -88,7 +88,6 @@ module.exports = {
 					return next(error);
 			} res.view({alumnos:alumnos});
 		})
-<<<<<<< HEAD
 	},
 
 	delete:function(req,res,next){
@@ -100,7 +99,5 @@ module.exports = {
 				} res.redirect('/alumno/all');
 			}
 		)
-=======
->>>>>>> 79c18c7bf9e829dcbfdf4a83c468f2211b1b72fb
 	}
 };
