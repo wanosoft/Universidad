@@ -52,8 +52,15 @@ module.exports = {
 					}
 					return res.redirect('session/new')
 				}
+				req.session.authenticated = true;
+				req.session.Alumno = user;
 				return res.redirect('/alumno/show/?matricula='+user.matricula);
 			});
 		});
+	},
+
+	destroy:function(req, res, next) {
+		req.session.destroy();
+		res.redirect('session/new')
 	}
 };
