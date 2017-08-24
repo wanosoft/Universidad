@@ -41,23 +41,23 @@
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="/">Home</a></li>
-          <li><a href="/alumno/all">Alumno</a></li>
-          <li><a href="/alumno/new">Alumno new</a></li>
-          <li><a href="collapsible.html">Javascript</a></li>
-
           <% if (req.session.authenticated == true){ %>
+            <li><a href="/alumno/all">Alumno</a></li>
+            <li><a href="/alumno/new">Alumno new</a></li>
             <li><a href="/session/destroy">Log out</a></li>
           <% }else{ %>
             <li><a href="/session/new">Login</a></li>
           <% }%>
-
         </ul>
         <ul class="side-nav" id="mobile-demo">
           <li><a href="/">Home</a></li>
-          <li><a href="/alumno/all">Alumno</a></li>
-          <li><a href="/alumno/new">Alumno</a></li>
-          <li><a href="collapsible.html">Javascript</a></li>
-          <li><a href="/session/new">Login</a></li>
+          <% if (req.session.authenticated == true){ %>
+            <li><a href="/alumno/all">Alumno</a></li>
+            <li><a href="/alumno/new">Alumno new</a></li>
+            <li><a href="/session/destroy">Log out</a></li>
+          <% }else{ %>
+            <li><a href="/session/new">Login</a></li>
+          <% }%>
         </ul>
       </div>
     </nav> <!-- Fin de nav -->
@@ -78,29 +78,11 @@
                sean partícipes de la sociedad del conocimiento.</p>
 
           </div>
-          <div class="col l3 s12">
-            <h5 class="white-text">Settings</h5>
-            <ul>
-              <li><a class="white-text" href="#!">Link 1</a></li>
-              <li><a class="white-text" href="#!">Link 2</a></li>
-              <li><a class="white-text" href="#!">Link 3</a></li>
-              <li><a class="white-text" href="#!">Link 4</a></li>
-            </ul>
-          </div>
-          <div class="col l3 s12">
-            <h5 class="white-text">Connect</h5>
-            <ul>
-              <li><a class="white-text" href="#!">Link 1</a></li>
-              <li><a class="white-text" href="#!">Link 2</a></li>
-              <li><a class="white-text" href="#!">Link 3</a></li>
-              <li><a class="white-text" href="#!">Link 4</a></li>
-            </ul>
-          </div>
         </div>
       </div>
       <div class="footer-copyright">
         <div class="container">
-        Made by <a class="brown-text text-lighten-3" href="https://github.com/wanosoft">Wanosoft</a>
+        Made by <a class="brown-text text-lighten-3" href="https://github.com/wanosoft-inc">Software IX</a>
         </div>
       </div>
     </footer> <!-- Fin FOOTER-->
